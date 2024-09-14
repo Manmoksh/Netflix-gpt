@@ -8,14 +8,14 @@ import {
 import Header from "./Header";
 import { checkvalidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BANNER } from "../utils/constant";
 
 function Login() {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -47,7 +47,6 @@ function Login() {
             dispatch(
               addUser({ uid: uid, email: email, displayName: displayName })
             );
-            navigate("/browse");
           });
         })
         .catch((error) => {
@@ -65,8 +64,6 @@ function Login() {
         .then((userCredential) => {
           //signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -82,10 +79,7 @@ function Login() {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/85ff76db-39e5-423a-afbc-97d3e74db71b/null/IN-en-20240909-TRIFECTA-perspective_b22117e0-4610-4d57-a695-20f77d241a4a_large.jpg"
-          alt="banner"
-        />
+        <img src={BANNER} alt="banner" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
