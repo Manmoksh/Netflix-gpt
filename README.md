@@ -1,3 +1,11 @@
+# NEtflix Gpt
+
+-cretae vite app
+-Configured tailwindcss
+-header
+-login form
+-form validation
+
 # Features
 
 -Login/sign-Up
