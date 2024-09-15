@@ -11,7 +11,7 @@ function GptMovieSuggestion() {
   return (
     <div className="bg-opacity-90 -4 m-4 bg-black text-white">
       <div>
-        {movieNames.map((movieName, index) => (
+        {movieNames?.map((movieName, index) => (
           <MovieList
             key={movieName}
             title={movieName}

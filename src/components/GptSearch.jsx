@@ -4,14 +4,17 @@ import GptMovieSuggestion from "./GptMovieSuggestion";
 
 function GptSearch() {
   return (
-    <div>
-      <div className="fixed -z-10">
-        <img src={BANNER} alt="banner" />
+    <>
+      <div
+        className="min-h-screen w-full  "
+        style={{ backgroundImage: `url(${BANNER})` }}
+      >
+        <div className="">
+          <GptSearchBar />
+          <GptMovieSuggestion />
+        </div>
       </div>
-
-      <GptSearchBar />
-      <GptMovieSuggestion />
-    </div>
+    </>
   );
 }
 

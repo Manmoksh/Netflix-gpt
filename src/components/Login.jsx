@@ -52,7 +52,7 @@ function Login() {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMsg(errorCode + "-" + errorMessage);
+          setErrorMsg("Email already in use");
         });
     } else {
       //Sign In
@@ -68,7 +68,7 @@ function Login() {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMsg(errorCode + "-" + errorMessage);
+          setErrorMsg("Invalid Email/Password");
         });
     }
   }
@@ -78,49 +78,60 @@ function Login() {
   return (
     <div>
       <Header />
-      <div className="absolute">
-        <img src={BANNER} alt="banner" />
-      </div>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 p-12 bg-black bg-opacity-80 absolute my-36  mx-auto left-0 right-0 text-white"
+      <div
+        className="min-h-screen w-full"
+        style={{ backgroundImage: `url(${BANNER})` }}
       >
-        <h1 className="font-bold text-3xl py-4">
-          {isSignInForm ? "Sign In" : "Sign Up"}
-        </h1>
-        {!isSignInForm && (
-          <input
-            ref={name}
-            type="text"
-            placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-700"
-          />
-        )}
-        <input
-          ref={email}
-          type="text"
-          placeholder="Email"
-          className="p-4 my-4 w-full bg-gray-700"
-        />
-        <input
-          ref={password}
-          type="password"
-          placeholder="Password"
-          className="p-4 my-6 w-full bg-gray-700"
-        />
-        <p className="text-red-500 font-bold -text-ld p-2">{errorMsg}</p>
-        <button
-          className="p-4 my-4 bg-red-700 w-full rounded-lg"
-          onClick={handleButtonClick}
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="w-[80%] md:w-3/12 p-4  md:p-12 bg-black bg-opacity-80 absolute my-36  mx-auto left-0 right-0 text-white"
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
-        </button>
-        <p onClick={toggleSignIn} className="py-4 cursor-pointer">
-          {isSignInForm
-            ? "New to Netflix? Sign Up Now"
-            : "Already Sign Up? Sign In Now"}
-        </p>
-      </form>
+          <h1 className="font-bold text-xl md:text-3xl py-1 md:py-4">
+            {isSignInForm ? "Sign In" : "Sign Up"}
+          </h1>
+          {!isSignInForm && (
+            <input
+              ref={name}
+              type="text"
+              placeholder="Full Name"
+              className="p-4 my-1 md:my-4 w-full bg-gray-700"
+            />
+          )}
+          <input
+            ref={email}
+            type="text"
+            placeholder="Email"
+            className="p-4 my-1 md:my-4 w-full bg-gray-700"
+          />
+          <input
+            ref={password}
+            type="password"
+            placeholder="Password"
+            className="p-4 my-2 md:my-4  w-full bg-gray-700"
+          />
+          <p className="text-red-500 font-bold -text-ld p-2">{errorMsg}</p>
+          <button
+            className="p-4 my-4 bg-red-700 w-full rounded-lg"
+            onClick={handleButtonClick}
+          >
+            {isSignInForm ? "Sign In" : "Sign Up"}
+          </button>
+          {isSignInForm && (
+            <div className="flex justify-center">
+              <details>
+                <summary className="text-red-700">Mock Login</summary>
+                <p>Email:test@test.com</p>
+                <p>Password:Test@1234</p>
+              </details>
+            </div>
+          )}
+          <p onClick={toggleSignIn} className="py-4 cursor-pointer">
+            {isSignInForm
+              ? "New to Netflix? Sign Up Now"
+              : "Already Sign Up? Sign In Now"}
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
