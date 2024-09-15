@@ -23,3 +23,6 @@ export const SUPPORTED_LANG = [
   { identifier: "spanish", name: "Spanish" },
   { identifier: "punjabi", name: "Punjabi" },
 ];
+export const OPENAI_KEY =
+  "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";
+export const GEMINI_KEY = "AIzaSyDi5zsEiPFeiWK-c2Y__Chx-pl0w3kwb5k";

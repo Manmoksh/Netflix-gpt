@@ -1,18 +1,16 @@
-import React from "react";
 import GptSearchBar from "./GptSearchBar";
 import { BANNER } from "../utils/constant";
 import GptMovieSuggestion from "./GptMovieSuggestion";
 
 function GptSearch() {
   return (
-    <div className="">
-      <div className="absolute -z-40">
+    <div>
+      <div className="fixed -z-10">
         <img src={BANNER} alt="banner" />
       </div>
-      <div>
-        <GptSearchBar />
-        <GptMovieSuggestion />
-      </div>
+
+      <GptSearchBar />
+      <GptMovieSuggestion />
     </div>
   );
 }
