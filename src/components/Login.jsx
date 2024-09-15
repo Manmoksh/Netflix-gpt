@@ -79,12 +79,12 @@ function Login() {
     <div>
       <Header />
       <div
-        className="min-h-screen w-full"
+        className="h-screen w-full fixed"
         style={{ backgroundImage: `url(${BANNER})` }}
       >
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="w-[80%] md:w-3/12 p-4  md:p-12 bg-black bg-opacity-80 absolute my-36  mx-auto left-0 right-0 text-white"
+          className="w-[80%] md:w-3/12 p-4  md:p-12 bg-black bg-opacity-80 absolute mt-24  mx-auto left-0 right-0 text-white"
         >
           <h1 className="font-bold text-xl md:text-3xl py-1 md:py-4">
             {isSignInForm ? "Sign In" : "Sign Up"}
@@ -94,24 +94,24 @@ function Login() {
               ref={name}
               type="text"
               placeholder="Full Name"
-              className="p-4 my-1 md:my-4 w-full bg-gray-700"
+              className="p-4 my-1 md:my-2 w-full bg-gray-700"
             />
           )}
           <input
             ref={email}
             type="text"
             placeholder="Email"
-            className="p-4 my-1 md:my-4 w-full bg-gray-700"
+            className="p-4 my-1 md:my-2 w-full bg-gray-700"
           />
           <input
             ref={password}
             type="password"
             placeholder="Password"
-            className="p-4 my-2 md:my-4  w-full bg-gray-700"
+            className="p-4 my-1 md:my-2  w-full bg-gray-700"
           />
-          <p className="text-red-500 font-bold -text-ld p-2">{errorMsg}</p>
+          <p className="text-red-500 font-bold text-lg p-2">{errorMsg}</p>
           <button
-            className="p-4 my-4 bg-red-700 w-full rounded-lg"
+            className="p-4 my-2 bg-red-700 w-full rounded-lg"
             onClick={handleButtonClick}
           >
             {isSignInForm ? "Sign In" : "Sign Up"}
@@ -125,7 +125,7 @@ function Login() {
               </details>
             </div>
           )}
-          <p onClick={toggleSignIn} className="py-4 cursor-pointer">
+          <p onClick={toggleSignIn} className="py-2 cursor-pointer">
             {isSignInForm
               ? "New to Netflix? Sign Up Now"
               : "Already Sign Up? Sign In Now"}
