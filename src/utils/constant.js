@@ -11,8 +11,7 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMzM3ZGU0NWM2OTBhNjU5YWM1ZDlmNzRjOGU5Y2VjOCIsIm5iZiI6MTcyNjMwODc4OS4wNTAxODIsInN1YiI6IjY2ZDg5MGRmMjVmMDczMjc1YTFhYmMxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rZIfUSalvF3rUF58JOgLK-UlR2Qri5Kqr3MAGAzVf4M",
+    Authorization: "Bearer " + import.meta.env.VITE_TMDB_KEY,
   },
 };
 export const IMG_CDN = "https://image.tmdb.org/t/p/w780/";
@@ -23,6 +22,5 @@ export const SUPPORTED_LANG = [
   { identifier: "spanish", name: "Spanish" },
   { identifier: "punjabi", name: "Punjabi" },
 ];
-export const OPENAI_KEY =
-  "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";
-export const GEMINI_KEY = "AIzaSyDi5zsEiPFeiWK-c2Y__Chx-pl0w3kwb5k";
+
+export const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY;
