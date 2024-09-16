@@ -64,12 +64,14 @@ function Header() {
               ))}
             </select>
           )}
-          <button
-            className="py-2 px-4 bg-purple-600 text-white rounded-lg mx-4 my-2"
-            onClick={handleGptSearch}
-          >
-            {showGptSearch ? "Homepage" : "GPT Search"}
-          </button>
+          <Link to={"/gpt-search"}>
+            <button
+              className="py-2 px-4 bg-purple-600 text-white rounded-lg mx-4 my-2"
+              onClick={handleGptSearch}
+            >
+              {showGptSearch ? "Homepage" : "GPT Search"}
+            </button>
+          </Link>
           <img
             className="hidden md:inline-block  w-12 h-12 "
             src={USER_AVATAR}
