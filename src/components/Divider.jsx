@@ -1,0 +1,7 @@
+import React from "react";
+
+function Divider() {
+  return <div className="bg-neutral-700 p-[.5px] rounded-full my-3"></div>;
+}
+
+export default Divider;

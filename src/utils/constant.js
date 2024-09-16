@@ -14,7 +14,7 @@ export const API_OPTIONS = {
     Authorization: "Bearer " + import.meta.env.VITE_TMDB_KEY,
   },
 };
-export const IMG_CDN = "https://image.tmdb.org/t/p/w780/";
+export const IMG_CDN = "https://image.tmdb.org/t/p/original/";
 
 export const SUPPORTED_LANG = [
   { identifier: "en", name: "English" },

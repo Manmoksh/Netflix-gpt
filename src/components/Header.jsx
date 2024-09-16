@@ -1,7 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANG, USER_AVATAR } from "../utils/constant";
@@ -46,10 +46,12 @@ function Header() {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="absolute  px-8 py-4  bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between w-screen ">
-      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
+    <nav className="absolute  px-8 py-2 md:py-4  bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between w-screen ">
+      <Link to="/browse">
+        <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
+      </Link>
       {user && (
-        <div className="flex p-2 justify-between">
+        <div className="flex p-2 justify-between items-center">
           {showGptSearch && (
             <select
               onChange={handlelangChange}
@@ -81,7 +83,7 @@ function Header() {
           </button>
         </div>
       )}
-    </div>
+    </nav>
   );
 }
 

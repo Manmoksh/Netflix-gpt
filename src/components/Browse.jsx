@@ -7,6 +7,9 @@ import GptSearch from "./GptSearch";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import useTrendingMovies from "../hooks/useTrendingMovie";
+import useOnTheAir from "../hooks/useOnTheAir";
+import Footer from "./Footer";
 
 function Browse() {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
@@ -15,10 +18,11 @@ function Browse() {
   usePopularMovies();
   useTopRatedMovies();
   useUpcomingMovies();
+  useTrendingMovies();
+  useOnTheAir();
 
   return (
     <div>
-      <Header />
       {showGptSearch ? (
         <GptSearch />
       ) : (

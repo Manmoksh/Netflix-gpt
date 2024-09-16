@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import lang from "../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { model } from "../utils/gemini";
@@ -6,16 +6,19 @@ import { API_OPTIONS } from "../utils/constant";
 import { addGptMovieResult } from "../utils/gptSlice";
 
 function GptSearchBar() {
+  const [loading, setLoading] = useState(false);
   const langkey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch();
   const searchText = useRef(null);
   //search movie in tmdb
   async function searchMovie(movie) {
+    setLoading(true);
     const data = await fetch(
       `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`,
       API_OPTIONS
     );
     const result = await data.json();
+    setLoading(false);
     return result.results;
   }
   function handleSearch() {
@@ -37,6 +40,7 @@ function GptSearchBar() {
     //[promise,p,p,p,p,]
 
     const tmdbResults = await Promise.all(promiseArray);
+
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
     );
