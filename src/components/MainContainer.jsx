@@ -11,7 +11,7 @@ function MainContainer() {
   return (
     <section className="w-full h-full">
       <div className="md:pt-0 pt-[30%] bg-black overflow-hidden">
-        <VideoTitle title={title} overview={overview} />
+        <VideoTitle title={title} overview={overview} id={id} />
         <VideoBackGround id={id} />
       </div>
     </section>

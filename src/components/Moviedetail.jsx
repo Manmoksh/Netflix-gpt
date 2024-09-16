@@ -3,12 +3,16 @@ import { API_OPTIONS, IMG_CDN } from "../utils/constant";
 import { useParams } from "react-router-dom";
 import Divider from "./Divider";
 import MovieList from "./MovieList";
+import VideoPlay from "./VideoPlay";
+import useMovieTrailer from "../hooks/useMovieTrailer";
 
 function Moviedetail() {
   const [movieData, setMovieData] = useState(null);
   const [castData, setCastData] = useState([]);
   const [similarMovie, setSimilarMovie] = useState([]);
   const [recommendMovie, setRecommendMovie] = useState([]);
+  const [playVideo, setPlayVideo] = useState(false);
+  const [videoId, setVideoId] = useState("");
   const { id } = useParams();
   async function fetchRecommendMovie() {
     const data = await fetch(
@@ -54,6 +58,13 @@ function Moviedetail() {
     fetchSimilarMovie();
     fetchRecommendMovie();
   }, [id]);
+
+  function handlePlayVideo(data) {
+    // useMovieTrailer(data.id);
+    setVideoId(data?.id);
+    setPlayVideo(true);
+  }
+
   const Duration = Number(movieData?.runtime / 60)
     .toFixed(2)
     .split(".");
@@ -86,6 +97,12 @@ function Moviedetail() {
             src={IMG_CDN + movieData?.poster_path}
             alt="poster"
           />
+          <button
+            onClick={() => handlePlayVideo(movieData)}
+            className="mt-3 w-full py-2 px4 text-center bg-white font-bold rounded text-black text-lg hover:bg-gradient-to-l from-red-500 to-orange-500 hover:scale-105 transition-all"
+          >
+            <i className="fa-solid fa-play mr-1"></i>Play
+          </button>
         </div>
         <div>
           <h2 className="text-2xl md:text-4xl font-bold text-white">
@@ -170,6 +187,9 @@ function Moviedetail() {
           movies={recommendMovie?.results}
         />
       </div>
+      {playVideo && (
+        <VideoPlay videoId={videoId} close={() => setPlayVideo(false)} />
+      )}
     </div>
   );
 }
