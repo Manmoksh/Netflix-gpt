@@ -1,6 +1,6 @@
 # NEtflix Gpt
 
--cretae vite app
+-create vite app
 -Configured tailwindcss
 -header
 -login form
