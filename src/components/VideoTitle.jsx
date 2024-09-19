@@ -12,9 +12,7 @@ function VideoTitle({ title, overview, id }) {
   return (
     <div className="pt-[20%] px-6 md:px-24 absolute text-white bg-gradient-to-r from-black w-screen aspect-video">
       <h1 className="font-bold text-xl md:text-3xl">{title}</h1>
-      <p className="hidden md:block text-base py-2 w-2/5 line-clamp-2 ">
-        {overview}
-      </p>
+      <p className="md:line-clamp-3 text-base  w-1/4 hidden">{overview}</p>
       <div className="mt-4">
         <button
           onClick={() => handlePlayVideo(id)}
