@@ -46,7 +46,7 @@ function Header() {
     return () => unsubscribe();
   }, []);
   return (
-    <nav className="absolute  px-8 py-2 md:py-4  bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between w-screen ">
+    <nav className="absolute md:fixed top-0  px-8 py-2 md:py-2  bg-gradient-to-b from-black z-40 flex flex-col md:flex-row justify-between w-screen ">
       <Link to="/browse">
         <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
       </Link>

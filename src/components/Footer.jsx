@@ -7,7 +7,9 @@ function Footer() {
       <div className="flex items-center justify-center gap-4">
         <Link to="/">About</Link>
       </div>
-      <p className="text-sm md:mt-2">&copy;Developed By Manmoksh</p>
+      <p className="text-sm md:mt-2 ">
+        &copy;Developed By <span className="text-white">Manmoksh</span>
+      </p>
     </footer>
   );
 }
