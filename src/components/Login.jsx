@@ -15,7 +15,6 @@ import { BANNER } from "../utils/constant";
 function Login() {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
-
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -78,6 +77,8 @@ function Login() {
   return (
     <div>
       <Header />
+
+      <div className="w-full h-full flex items-center justify-center">// </div>
       <div
         className="h-screen w-full fixed"
         style={{ backgroundImage: `url(${BANNER})` }}
