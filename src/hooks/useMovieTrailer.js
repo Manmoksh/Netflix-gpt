@@ -14,16 +14,20 @@ function useMovieTrailer(id) {
     );
     const result = await data.json();
 
-    const filterData = result?.results.filter(
-      (video) => video.type === "Trailer"
-    );
-    const trailer = filterData.length ? filterData[0] : result.results[0];
+    if (result.length != 0) {
+      const filterData = result?.results.filter(
+        (video) => video.type === "Trailer"
+      );
+      const trailer = filterData.length ? filterData[0] : result.results[0];
 
-    dispatch(addTrailerVideo(trailer));
+      dispatch(addTrailerVideo(trailer));
+    } else {
+      dispatch(addTrailerVideo(null));
+    }
   }
   useEffect(() => {
     getTrailer();
-  }, []);
+  }, [id]);
 }
 
 export default useMovieTrailer;
